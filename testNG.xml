@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="cbt-test" verbose="1">
+	
+	<!-- 设置浏览器驱动地址  如果chrome、ie、firefox 都是默认安装目录driverPath不用配置
+		如果非默认安装目录 需要修改下方配置
+	<parameter name="ChromeDriverPath"
+		value="D:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe" />
+	<parameter name="IeDriverPath"
+		value="C:/Program Files/Internet Explorer/IEDriverServer.exe" />
+	<parameter name="FirefoxDriverPath"
+		value="C:/Program Files (x86)/Mozilla Firefox/firefox.exe" />
+ -->
+
+	<!-- 测试数据存放地址 -->
+	<parameter name="mysql_url" value="jdbc:mysql://127.0.0.1:3306/testdate?characterEncoding=UTF-8" />
+	<parameter name="mysql_user" value="root" />
+	<parameter name="mysql_pwd" value="" />
+
+	<!-- 测试目标配置 -->
+	<parameter name="target_sql_url" value="jdbc:mysql://192.168.0.11:3306/cbt20160108?characterEncoding=UTF-8" />
+	<parameter name="target_sql_user" value="root" />
+	<parameter name="target_sql_pwd" value="zcgt111" />
+	<parameter name="guanli_cbt" value="http://192.168.0.21/admin/guanli_cbt" />
+	<parameter name="index" value="http://192.168.0.21" />
+	<parameter name="admin_user" value="admin" />
+	<parameter name="admin_pass" value="123456" />
+	<parameter name="front_user" value="15600212730" />
+	<parameter name="front_pass" value="111111" />
+
+
+	<test name="clean">
+		<classes>
+			<class name="cases.Clean"></class>
+		</classes>
+	</test>
+
+
+
+	<test name="testfront  Chrome">
+		<parameter name="DriverName" value="chrome" />
+		<classes>
+			<!--<class name="cases.admin.AdminLoginTest"></class>-->
+			<!--<class name="cases.front.RegisterTest"></class>-->
+			<!--<class name="cases.front.AuthenticationTest"></class>-->
+			<!--<class name="cases.front.LoginTest"></class>-->
+			<!--<class name="cases.front.SignOutTest"></class>-->
+			<!--<class name="cases.front.ModifyPwd"></class>-->
+			<class name="cases.front.RechargeTest"></class>
+		</classes>
+	</test>
+
+<!--
+
+
+
+
+<test name="testChrome">
+<parameter name="DriverName" value="chrome" />
+<packages>
+    <package name="cases" />
+</packages>
+</test>
+<test name="testIE">
+<parameter name="DriverName" value="ie" />
+<packages>
+    <package name="cases" />
+</packages>
+</test>
+
+<test name="testFirefox">
+	<parameter name="DriverName" value="firefox" />
+	<parameter name="DriverName" value="chrome" />
+</test>
+
+-->
+	
+
+
+</suite>
